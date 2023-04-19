@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
 
-export default function Profil() {
+export default function Profile() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Aled</Text>
