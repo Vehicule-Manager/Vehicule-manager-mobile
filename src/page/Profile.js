@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
-import FooterNav from "../../components/layout/header";
+import FooterNav from "../components/layout/header";
 
 export default function Profile() {
   return (
