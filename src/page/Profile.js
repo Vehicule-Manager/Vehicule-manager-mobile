@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
+import FooterNav from "../../components/layout/header";
 
 export default function Profile() {
   return (
@@ -16,6 +17,7 @@ export default function Profile() {
           <Text style={styles.containersTitle}>Mes locations</Text>
         </View>
       </View>
+      <FooterNav/>
     </View>
   );
 }
