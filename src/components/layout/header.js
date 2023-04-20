@@ -14,6 +14,7 @@ export default function FooterNav() {
     };
 
     const handlePress2 = () => {
+        navigation.navigate("ProfileLeasing");
         setSelectedIcon(2);
     };
 
