@@ -6,6 +6,7 @@ import Profile from "./page/Profile";
 import ProfileLeasing from "./page/ProfileLeasing";
 import EditProfile from "./page/EditProfile";
 import ChangePassword from "./page/ChangePassword";
+import ProfileVehicle from "./page/ProfileVehicle";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="ProfileLeasing" component={ProfileLeasing} />
                 <Stack.Screen name="EditProfil" component={EditProfile} />
                 <Stack.Screen name="ChangePassword" component={ChangePassword} />
+                <Stack.Screen name="ProfileVehicle" component={ProfileVehicle} />
             </Stack.Navigator>
         </NavigationContainer>
     );

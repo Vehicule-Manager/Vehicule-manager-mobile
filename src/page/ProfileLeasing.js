@@ -7,7 +7,7 @@ export default function ProfileLeasing() {
     const navigation = useNavigation();
 
     const handleLogin = () => {
-        navigation.navigate("Profil");
+        navigation.navigate("ProfileVehicle");
     }
 
     return (
