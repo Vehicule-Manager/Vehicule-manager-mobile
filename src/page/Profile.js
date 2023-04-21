@@ -14,7 +14,7 @@ export default function Profile() {
         <Pressable style={styles.containers} onPress={() => navigation.navigate("EditProfil")}>
           <Text style={styles.containersTitle} >Modifier mes information</Text>
         </Pressable>
-        <Pressable style={styles.containers} onPress={() => navigation.navigate("EditProfil")}>
+        <Pressable style={styles.containers} onPress={() => navigation.navigate("ChangePassword")}>
           <Text style={styles.containersTitle}>Modifier le mot de passe</Text>
         </Pressable>
         <Pressable style={styles.containers} onPress={() => navigation.navigate("ProfileLeasing")}>

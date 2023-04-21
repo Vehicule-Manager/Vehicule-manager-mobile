@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
 import FooterNav from "../components/layout/header";
 
-export default function EditProfile() {
-    const [email, setEmail] = useState('');
+export default function ChangePassword() {
+    const [password, setPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [newConfirmPassword, setNewConfirmPassword] = useState('');
     const navigation = useNavigation();
 
     const handleLogin = () => {
@@ -14,13 +16,27 @@ export default function EditProfile() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Modifer mes information</Text>
+            <Text style={styles.title}>Modifer le mot de passe</Text>
             <TextInput
                 style={styles.input}
-                onChangeText={text => setEmail(text)}
-                value={email}
-                placeholder="Email"
-                autoCapitalize="none"
+                onChangeText={text => setPassword(text)}
+                value={password}
+                placeholder="Ancien mot de passe"
+                secureTextEntry={true}
+            />
+            <TextInput
+                style={styles.input}
+                onChangeText={text => setNewPassword(text)}
+                value={newPassword}
+                placeholder="Nouveau mot de passe"
+                secureTextEntry={true}
+            />
+            <TextInput
+                style={styles.input}
+                onChangeText={text => setNewConfirmPassword(text)}
+                value={newConfirmPassword}
+                placeholder="Corfirmation de mot de passe"
+                secureTextEntry={true}
             />
             <Button
                 title="Confirmer"
