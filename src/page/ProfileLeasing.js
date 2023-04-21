@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, View, Button, Text, Image, ScrollView} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
+import FooterNav from "../components/layout/header";
 
 export default function ProfileLeasing() {
     const navigation = useNavigation();
@@ -56,6 +57,7 @@ export default function ProfileLeasing() {
                     </View>
                 </View>
             </View>
+            <FooterNav/>
         </ScrollView>
     )
         ;
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-
+        marginBottom: 80,
     },
 
     containerGap: {

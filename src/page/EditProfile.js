@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
+import FooterNav from "../components/layout/header";
 
-export default function LoginForm() {
+export default function EditProfile() {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const navigation = useNavigation();
 
     const handleLogin = () => {
@@ -14,7 +14,7 @@ export default function LoginForm() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
+            <Text style={styles.title}>Modifer mes information</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={text => setEmail(text)}
@@ -22,17 +22,11 @@ export default function LoginForm() {
                 placeholder="Email"
                 autoCapitalize="none"
             />
-            <TextInput
-                style={styles.input}
-                onChangeText={text => setPassword(text)}
-                value={password}
-                placeholder="Password"
-                secureTextEntry={true}
-            />
             <Button
-                title="Login"
+                title="Confirmer"
                 onPress={handleLogin}
             />
+            <FooterNav/>
         </View>
     );
 }
@@ -46,7 +40,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 20,
+        marginBottom: 10,
     },
     input: {
         borderBottomWidth: 1,

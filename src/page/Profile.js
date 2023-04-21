@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
+import React from 'react';
+import {StyleSheet, View, Text, Pressable} from 'react-native';
+import {useNavigation} from "@react-navigation/native";
 import FooterNav from "../components/layout/header";
 
 export default function Profile() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Aled</Text>
       <View style={styles.sectionContainers}>
-        <View style={styles.containers}>
-          <Text style={styles.containersTitle}>Modifier mes information</Text>
-        </View>
-        <View style={styles.containers}>
+        <Pressable style={styles.containers} onPress={() => navigation.navigate("EditProfil")}>
+          <Text style={styles.containersTitle} >Modifier mes information</Text>
+        </Pressable>
+        <Pressable style={styles.containers} onPress={() => navigation.navigate("ChangePassword")}>
           <Text style={styles.containersTitle}>Modifier le mot de passe</Text>
-        </View>
-        <View style={styles.containers}>
+        </Pressable>
+        <Pressable style={styles.containers} onPress={() => navigation.navigate("ProfileLeasing")}>
           <Text style={styles.containersTitle}>Mes locations</Text>
-        </View>
+        </Pressable>
       </View>
       <FooterNav/>
     </View>
