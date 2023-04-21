@@ -3,7 +3,6 @@ import {StyleSheet, View, Text, Pressable} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import FooterNav from "../components/layout/header";
 
-
 export default function Profile() {
   const navigation = useNavigation();
 

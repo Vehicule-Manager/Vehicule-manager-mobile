@@ -7,7 +7,6 @@ import ProfileLeasing from "./page/ProfileLeasing";
 import EditProfile from "./page/EditProfile";
 import ChangePassword from "./page/ChangePassword";
 
-
 const Stack = createStackNavigator();
 
 export default function AppNavigator() {
