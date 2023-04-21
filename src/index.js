@@ -14,12 +14,12 @@ export default function AppNavigator() {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Login">
-                <Stack.Screen name="Login" component={LoginForm} />
-                <Stack.Screen name="Profil" component={Profile} />
-                <Stack.Screen name="ProfileLeasing" component={ProfileLeasing} />
-                <Stack.Screen name="EditProfil" component={EditProfile} />
-                <Stack.Screen name="ChangePassword" component={ChangePassword} />
-                <Stack.Screen name="ProfileVehicle" component={ProfileVehicle} />
+                <Stack.Screen name="Login" component={LoginForm} options={{ title: 'Connexion' }}/>
+                <Stack.Screen name="Profil" component={Profile} options={{ title: 'Mon Profil' }} />
+                <Stack.Screen name="ProfileLeasing" component={ProfileLeasing} options={{ title: 'Mes véhicules' }}/>
+                <Stack.Screen name="EditProfil" component={EditProfile} options={{ title: 'Modifier mes informations' }}/>
+                <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ title: 'Changer mon mot de passe' }}/>
+                <Stack.Screen name="ProfileVehicle" component={ProfileVehicle} options={{ title: 'Mon véhicule' }}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
