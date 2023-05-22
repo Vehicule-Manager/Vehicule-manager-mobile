@@ -7,6 +7,7 @@ import ProfileLeasing from "./page/ProfileLeasing";
 import EditEmail from "./page/EditEmail";
 import ChangePassword from "./page/ChangePassword";
 import ProfileVehicle from "./page/ProfileVehicle";
+import EditInformation from "./page/EditInformation";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="ProfileLeasing" component={ProfileLeasing} options={{ title: 'Mes véhicules' }}/>
                 <Stack.Screen name="EditEmail" component={EditEmail} options={{ title: 'Modifier mes informations' }}/>
                 <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ title: 'Changer mon mot de passe' }}/>
+                <Stack.Screen name="ChangeProfileInfo" component={EditInformation} options={{ title: 'Changer mes information' }}/>
                 <Stack.Screen name="ProfileVehicle" component={ProfileVehicle} options={{ title: 'Mon véhicule' }}/>
             </Stack.Navigator>
         </NavigationContainer>

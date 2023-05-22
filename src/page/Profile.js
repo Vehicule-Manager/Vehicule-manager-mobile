@@ -22,7 +22,7 @@ export default function Profile() {
           </View>
           <View style={styles.sections}>
             <Text style={styles.sectionTitle}>Information personnel</Text>
-            <Pressable style={styles.editPersonalData} onPress={() => navigation.navigate("EditEmail")}>
+            <Pressable style={styles.editPersonalData} onPress={() => navigation.navigate("ChangeProfileInfo")}>
               <Icon name="user-o" color="#00aced" size={30} />
             </Pressable>
             <View style={styles.personalDataContainer}>
