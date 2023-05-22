@@ -1,14 +1,24 @@
-import React, {useState} from 'react';
-import {StyleSheet, TextInput, View, Button, Text, Image, ScrollView} from 'react-native';
-import {useNavigation} from "@react-navigation/native";
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, TextInput, View, Button, Text, Image, ScrollView } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 import FooterNav from "../components/layout/footer";
+import { API_PATH } from '@env'
 
 export default function ProfileLeasing() {
     const navigation = useNavigation();
-
+    const [vehicleData, setVehicleData] = useState([]);
     const handleLogin = () => {
         navigation.navigate("ProfileVehicle");
     }
+
+    useEffect(() => {
+        console.log(API_PATH);
+        fetch(`${API_PATH}leavingVehicule/1`)
+            .then(response => response.json())
+            .then(data => setVehicleData(data))
+            .catch(error => console.error(error));
+    }, []);
+    console.log(vehicleData);
 
     return (
         <View style={styles.container}>
@@ -61,8 +71,7 @@ export default function ProfileLeasing() {
             </ScrollView>
             <FooterNav/>
         </View>
-    )
-        ;
+    );
 }
 
 const styles = StyleSheet.create({
