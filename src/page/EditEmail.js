@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
 import FooterNav from "../components/layout/footer";
 
-export default function EditProfile() {
+export default function EditEmail() {
     const [email, setEmail] = useState('');
     const navigation = useNavigation();
 
@@ -14,7 +14,7 @@ export default function EditProfile() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Modifer mes information</Text>
+            <Text style={styles.title}>Modifer mon email</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={text => setEmail(text)}
