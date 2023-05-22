@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, View, Button, Text, Image, ScrollView} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
-import FooterNav from "../components/layout/header";
+import FooterNav from "../components/layout/footer";
 
 export default function ProfileLeasing() {
     const navigation = useNavigation();

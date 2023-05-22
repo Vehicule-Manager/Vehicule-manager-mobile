@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, Pressable} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
-import FooterNav from "../components/layout/header";
+import FooterNav from "../components/layout/footer";
 
 export default function Profile() {
   const navigation = useNavigation();
