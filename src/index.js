@@ -8,6 +8,7 @@ import EditEmail from "./page/EditEmail";
 import ChangePassword from "./page/ChangePassword";
 import ProfileVehicle from "./page/ProfileVehicle";
 import EditInformation from "./page/EditInformation";
+import Contact from "./page/Contact.js";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ title: 'Changer mon mot de passe' }}/>
                 <Stack.Screen name="ChangeProfileInfo" component={EditInformation} options={{ title: 'Changer mes information' }}/>
                 <Stack.Screen name="ProfileVehicle" component={ProfileVehicle} options={{ title: 'Mon véhicule' }}/>
+                <Stack.Screen name="Contact" component={Contact} options={{ title: 'Contact' }}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
