@@ -16,7 +16,7 @@ export default function FooterNav() {
   };
 
   const handlePress3 = () => {
-    navigation.navigate('AutreRoute');
+    navigation.navigate('Contact');
   };
 
   const getIconStyle = (iconNumber) => {
@@ -24,7 +24,7 @@ export default function FooterNav() {
     if (
       (iconNumber === 1 && routeName === 'Profil') ||
       (iconNumber === 2 && routeName === 'ProfileLeasing') ||
-      (iconNumber === 3 && routeName === 'AutreRoute')
+      (iconNumber === 3 && routeName === 'Contact')
     ) {
       return [styles.icon, styles.selectedIcon];
     }
@@ -49,7 +49,7 @@ export default function FooterNav() {
         style={getIconStyle(3)}
         onPress={handlePress3}
       >
-        <Icon name="vcard-o" color={route.name === 'AutreRoute' ? '#FFFFFF' : '#00aced'} size={30} />
+        <Icon name="phone" color={route.name === 'Contact' ? '#FFFFFF' : '#00aced'} size={30} />
       </TouchableOpacity>
     </View>
   );
