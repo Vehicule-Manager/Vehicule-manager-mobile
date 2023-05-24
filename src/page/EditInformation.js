@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, View, Button, Text, ScrollView} from 'react-native';
-import FooterNav from "../components/layout/header";
+import FooterNav from "../components/layout/footer";
 
 export default function EditInformation() {
     const [firstName, setFirstName] = useState('');
