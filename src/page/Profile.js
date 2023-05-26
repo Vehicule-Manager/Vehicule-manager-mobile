@@ -12,7 +12,7 @@ export default function Profile() {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    axios.get(`${API_PATH}client/1`)
+    axios.get(`${API_PATH}clients/1`)
         .then(response => {
           const data = response.data;
           setClient(data[0]);
@@ -21,7 +21,7 @@ export default function Profile() {
   }, []);
 
   useEffect(() => {
-    axios.get(`${API_PATH}user/${client.id_users}`)
+    axios.get(`${API_PATH}users/${client.id_users}`)
         .then(response => {
           const data = response.data;
           setUser(data[0]);
@@ -34,6 +34,8 @@ export default function Profile() {
       return { ...client, user: user };
     }
   }, [client, user]);
+
+  console.log(`${API_PATH}users/${client.id_users}`)
 
   return (
     <View style={styles.container}>

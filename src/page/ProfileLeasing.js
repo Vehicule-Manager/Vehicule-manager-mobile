@@ -15,7 +15,7 @@ export default function ProfileLeasing() {
     const [status, setStatus] = useState([]);
 
     useEffect(() => {
-        axios.get(`${API_PATH}client/1`)
+        axios.get(`${API_PATH}clients/1`)
             .then(response => {
                 const data = response.data;
                 setClientData(data);
@@ -24,7 +24,7 @@ export default function ProfileLeasing() {
     }, []);
 
     useEffect(() => {
-        axios.get(`${API_PATH}leavingVehicule/client/1`)
+        axios.get(`${API_PATH}leavingVehicules/client/1`)
             .then(response => {
                 const data = response.data;
                 setLeasingVehicles(data);
@@ -39,7 +39,7 @@ export default function ProfileLeasing() {
 
             // Création d'un tableau de promesses pour les requêtes individuelles
             const vehiclePromises = vehicleIds.map(vehicleId =>
-                axios.get(`${API_PATH}vehicule/${vehicleId}`)
+                axios.get(`${API_PATH}vehicules/${vehicleId}`)
             );
 
             try {
@@ -67,7 +67,7 @@ export default function ProfileLeasing() {
 
             // Création d'un tableau de promesses pour les requêtes individuelles
             const modelsPromises = modelsIds.map(modelsIds =>
-                axios.get(`${API_PATH}model/${modelsIds}`)
+                axios.get(`${API_PATH}models/${modelsIds}`)
             );
 
             try {
@@ -94,7 +94,7 @@ export default function ProfileLeasing() {
 
             // Création d'un tableau de promesses pour les requêtes individuelles
             const brandsPromises = brandsIds.map(brandsIds =>
-                axios.get(`${API_PATH}brand/${brandsIds}`)
+                axios.get(`${API_PATH}brands/${brandsIds}`)
             );
 
             try {

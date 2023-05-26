@@ -15,7 +15,7 @@ export default function ProfileLeasing() {
     const [gearboxe, setGearBoxe] = useState([]);
 
     useEffect(() => {
-        axios.get(`${API_PATH}vehicule/${vehicleId}`)
+        axios.get(`${API_PATH}vehicules/${vehicleId}`)
             .then(response => {
                 const data = response.data;
                 setVehicle(data[0]);
@@ -24,7 +24,7 @@ export default function ProfileLeasing() {
     }, []);
 
     useEffect(() => {
-        axios.get(`${API_PATH}model/${vehicle.id_model_car}`)
+        axios.get(`${API_PATH}models/${vehicle.id_model_car}`)
             .then(response => {
                 const data = response.data;
                 setModel(data[0]);
@@ -33,7 +33,7 @@ export default function ProfileLeasing() {
     }, [vehicle]);
 
     useEffect(() => {
-        axios.get(`${API_PATH}brand/${vehicle.id_brands}`)
+        axios.get(`${API_PATH}brands/${vehicle.id_brands}`)
             .then(response => {
                 const data = response.data;
                 setBrand(data[0]);
@@ -42,7 +42,7 @@ export default function ProfileLeasing() {
     }, [vehicle]);
 
     useEffect(() => {
-        axios.get(`${API_PATH}energie/${vehicle.id_energies}`)
+        axios.get(`${API_PATH}energies/${vehicle.id_energies}`)
             .then(response => {
                 const data = response.data;
                 setEnergie(data[0]);
@@ -51,7 +51,7 @@ export default function ProfileLeasing() {
     }, [vehicle]);
 
     useEffect(() => {
-        axios.get(`${API_PATH}type/${vehicle.id_types}`)
+        axios.get(`${API_PATH}types/${vehicle.id_types}`)
             .then(response => {
                 const data = response.data;
                 setType(data[0]);
@@ -60,7 +60,7 @@ export default function ProfileLeasing() {
     }, [vehicle]);
 
     useEffect(() => {
-        axios.get(`${API_PATH}gearBoxe/${vehicle.id_gear_boxes}`)
+        axios.get(`${API_PATH}gearBoxes/${vehicle.id_gear_boxes}`)
             .then(response => {
                 const data = response.data;
                 setGearBoxe(data[0]);
