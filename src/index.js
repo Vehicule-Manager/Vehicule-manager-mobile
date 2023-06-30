@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import LoginForm from './page/LoginForm'; // Import your LoginForm component
+import LoginForm from './feature/loginApi/LoginScreen';
 import Profile from "./page/Profile";
 import ProfileLeasing from "./page/ProfileLeasing";
 import EditEmail from "./page/EditEmail";
@@ -9,6 +9,10 @@ import ChangePassword from "./page/ChangePassword";
 import ProfileVehicle from "./page/ProfileVehicle";
 import EditInformation from "./page/EditInformation";
 import Contact from "./page/Contact.js";
+import App from '../App'; // Make sure the path to your App component is correct
+import {AppRegistry} from "react-native";
+
+AppRegistry.registerComponent('mobile-vehicule-manager', () => App);
 
 const Stack = createStackNavigator();
 

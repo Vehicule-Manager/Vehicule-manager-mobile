@@ -1,36 +1,40 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useState, useEffect, useMemo, useContext} from 'react';
 import { StyleSheet, View, Text, Image, Button, ScrollView } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import axios from 'axios';
 import FooterNav from "../components/layout/footer";
 import { API_PATH } from '@env';
+import {ApiContext} from "../feature/loginApi/ApiContext";
 
 export default function ProfileLeasing() {
     const navigation = useNavigation();
-    const [clientData, setClientData] = useState([]);
+    const [client, setClient] = useState([]);
     const [leasingVehicles, setLeasingVehicles] = useState([]);
     const [vehicle, setVehicle] = useState([]);
     const [model, setModel] = useState([]);
     const [brand, setBrand] = useState([]);
     const [status, setStatus] = useState([]);
+    const {user} = useContext(ApiContext);
+    const userInfo = user["user"];
+    console.log(`${API_PATH}leavingVehicules/client/${client.id}`)
 
     useEffect(() => {
-        axios.get(`${API_PATH}clients/1`)
+        axios.get(`${API_PATH}user/client/${userInfo.id}`)
             .then(response => {
                 const data = response.data;
-                setClientData(data);
+                setClient(data['0']);
             })
             .catch(error => console.error(error));
-    }, []);
+    }, [userInfo]);
 
     useEffect(() => {
-        axios.get(`${API_PATH}leavingVehicules/client/1`)
+        axios.get(`${API_PATH}leavingVehicules/client/${client.id}`)
             .then(response => {
                 const data = response.data;
                 setLeasingVehicles(data);
             })
             .catch(error => console.error(error));
-    }, []);
+    }, [client]);
 
     useEffect(() => {
         const fetchVehiclesInfo = async () => {
@@ -174,13 +178,12 @@ export default function ProfileLeasing() {
             return { ...vehicle[0], model: vehicleModel, brand: modelBrand, status: LeasingStatus };
         });
     }, [vehicle, getModel, getBrand, getLeasingVehicles, getStatus]);
-    console.log(getMergedVehicles)
 
     return (
         <View style={styles.container}>
             <ScrollView>
                 <View style={styles.leasingContainer}>
-                    <Text style={styles.title}>{clientData.length > 0 ? `${clientData[0].firstname} ${clientData[0].lastname}, Vos véhicules` : null}</Text>
+                    <Text style={styles.title}>{client ? `${client.firstname} ${client.lastname}, Vos véhicules` : null}</Text>
                     <View style={styles.containerGap}>
                         {getMergedVehicles.length > 0 ? (
                             getMergedVehicles.map(vehicle => (
@@ -213,7 +216,7 @@ const styles = StyleSheet.create({
     leasingContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 80,
+        marginBottom: 100,
     },
     containerGap: {
         flex: 1,
