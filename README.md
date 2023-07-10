@@ -6,9 +6,11 @@
 - Installer les dépendances - npx expo install react-dom react-native-web @expo/webpack-config
 - Démarrer React Native - npx expo start
 
-- Repo Front : https://github.com/mansonboy/Front-Vehicule-Manager
-- Repo Back : https://github.com/mansonboy/vehiculeManager
-- Repo Desktop : https://github.com/mansonboy/Vehicule-manager-desktop
+- Repo Front : https://github.com/Vehicule-Manager/Front-Vehicule-Manager
+- Repo Back : https://github.com/Vehicule-Manager/vehiculeManager
+- Repo Desktop : https://github.com/Vehicule-Manager/Vehicule-manager-desktop
 - Lien Notion : https://concrete-grouse-96d.notion.site/Promo-CDA-5215121ca7c74086b09c62615c765575
 - Lien Figma : https://www.figma.com/file/xOUedZPrkebs9HFc5jHrAx/CDA-Project-Location
 
+Utilisateur Test :
+Mail : admin@test.fr Password : Vehicle80!

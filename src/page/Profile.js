@@ -1,11 +1,34 @@
-import React from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 import {StyleSheet, View, Text, Pressable, ScrollView} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import FooterNav from "../components/layout/footer";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from "axios";
+import { API_PATH } from '@env';
+import {ApiContext} from "../feature/loginApi/ApiContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Profile() {
   const navigation = useNavigation();
+  const [client, setClient] = useState([]);
+  const {user} = useContext(ApiContext);
+  const userInfo = user["user"];
+
+  useEffect(() => {
+    axios.get(`${API_PATH}user/client/${userInfo.id}`)
+        .then(response => {
+          const data = response.data;
+          setClient(data['0']);
+        })
+        .catch(error => console.error(error));
+  }, [userInfo]);
+
+  const handleLogout = async () => {//s'active lors du clic sur le bouton
+    if(await AsyncStorage.getItem('token') !== null) {
+      await AsyncStorage.removeItem('token'); //supprime le token de l'AsyncStorage
+    }
+    navigation.navigate('Login'); //redirige vers la page de connexion
+  }
 
   return (
     <View style={styles.container}>
@@ -14,7 +37,10 @@ export default function Profile() {
           <View style={styles.sections}>
             <Text style={styles.sectionTitle}>Information de connexion</Text>
             <View style={styles.row}>
-              <Text style={styles.textData}>jean.neymard@gmail.com</Text>
+              <View style={styles.loginContainer}>
+                <Text style={styles.textData}> alias :{userInfo ? userInfo.login : ''}</Text>
+                <Text style={styles.textData}> email : {userInfo ? userInfo.mail : ''}</Text>
+              </View>
               <Pressable onPress={() => navigation.navigate("EditEmail")}>
                 <Icon name="user-o" color="#00aced" size={30} />
               </Pressable>
@@ -26,14 +52,13 @@ export default function Profile() {
               <Icon name="user-o" color="#00aced" size={30} />
             </Pressable>
             <View style={styles.personalDataContainer}>
-              <Text style={styles.textData}>Aled</Text>
-              <Text style={styles.textData}>Aled</Text>
-              <Text style={styles.textData}>Aled</Text>
-              <Text style={styles.textData}>Aled</Text>
-              <Text style={styles.textData}>Aled</Text>
-              <Text style={styles.textData}>Aled</Text>
-              <Text style={styles.textData}>Aled</Text>
-              <Text style={styles.textData}>Aled</Text>
+              <Text style={styles.textData}>Prénom : {client ? client.firstname : ''}</Text>
+              <Text style={styles.textData}>Nom : {client ? client.lastname : ''}</Text>
+              <Text style={styles.textData}>Civilité : {client ? client.civility : ''}</Text>
+              <Text style={styles.textData}>Addresse :</Text>
+              <Text style={styles.textData}>{client ? client.address : ''}</Text>
+              <Text style={styles.textData}>Code postal : {client ? client.zipCode : ''}</Text>
+              <Text style={styles.textData}>addresse optionel : {client ? client.optionalAddress : ''}</Text>
             </View>
           </View>
           <View style={styles.sections}>
@@ -47,6 +72,9 @@ export default function Profile() {
           <Pressable style={styles.leasingContainer} onPress={() => navigation.navigate("ProfileLeasing")}>
             <Text style={styles.leasingContainerTitle}>Mes locations</Text>
           </Pressable>
+          <Pressable style={styles.logOutContainer} onPress={handleLogout}>
+            <Text style={styles.logOutContainerTitle}>Deconnexion</Text>
+          </Pressable>
         </View>
       </ScrollView>
       <FooterNav/>
@@ -57,6 +85,9 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  loginContainer: {
+    flexDirection:  'column',
   },
   sectionTitle: {
     fontSize: 24,
@@ -86,7 +117,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     rowGap: 30,
     paddingHorizontal: 40,
-    marginBottom: 80,
+    marginBottom: 100,
   },
   row: {
     flexDirection: 'row',
@@ -101,5 +132,19 @@ const styles = StyleSheet.create({
   personalDataContainer: {
     flexDirection: 'column',
     rowGap: 10,
+  },
+  logOutContainerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  logOutContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'red',
+    borderRadius: 4,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    marginHorizontal: 20,
   }
 });
